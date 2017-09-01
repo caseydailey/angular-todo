@@ -10,7 +10,6 @@ app.factory("userFactory", function($q, $http){
 
     let currentUser = null;
 
-
     const getCurrentUser = function(){
 
     };
@@ -37,6 +36,17 @@ app.factory("userFactory", function($q, $http){
 
     const isAuthenticated = function(){
 
+    };
+
+    return {
+
+        getCurrentUser,
+        loginGoogle,
+        logIn,
+        logOut,
+        register,
+        isAuthenticated
+        
     };
 
 });
