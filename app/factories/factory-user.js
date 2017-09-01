@@ -31,8 +31,9 @@ app.factory("userFactory", function($q, $http){
 
 
     
-    const logIn = function(){
-
+    const logIn = function(user){
+        return firebase.auth()
+                       .signInWithEmailAndPassword(user.email, user.password);
     };
 
 
@@ -42,8 +43,11 @@ app.factory("userFactory", function($q, $http){
     };
 
 
-    const register = function(){
-
+    // this takes an object created in the controller
+    // which has an email and password from the form data
+    const register = function(user){
+        return firebase.auth()
+                       .createUserWithEmailAndPassword(user.email, user.password);
     };
 
     const authWithProvider = function(){

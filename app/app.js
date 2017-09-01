@@ -2,22 +2,7 @@
 
 const app = angular.module("TodoApp", ['ngRoute']);
 
-
-
-// let isAuth = (userFactory) => new Promise ( (resolve, reject) => {
-//   userFactory.isAuthenticated()
-//   .then( (userExists) => {
-//     if(userExists){
-//       console.log("Authenticated, go ahead");
-//       resolve();
-//     }else {
-//       console.log("Authentication reject, GO AWAY");
-//       reject();
-//     }
-//   });
-// });
-
-let isAuth = (userFactory) => userFactory.isAuthenticated();
+const isAuth = (userFactory) => userFactory.isAuthenticated();
 
 app.config(($routeProvider)=> {
     $routeProvider 

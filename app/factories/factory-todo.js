@@ -8,6 +8,8 @@
 
 app.factory("todoFactory", function($q, $http, FBCreds){
 
+    const url = FBCreds.databaseURL;
+
     // helper function to process the firebase object
     // into an array with it's ugly id assigned as its local id
     const makeArray = function(object){
@@ -23,7 +25,7 @@ app.factory("todoFactory", function($q, $http, FBCreds){
     // fo we pass that to makeArray, a helper defined above
     const getAllTasks = function(user){
         return $q((resolve, reject)=>{
-            $http.get(`${FBCreds.databaseURL}/items.json?orderBy="uid"&equalTo="${user}"`)
+            $http.get(`${url}/items.json?orderBy="uid"&equalTo="${user}"`)
                 .then(items => resolve(makeArray(items.data)))
                 .catch(error => reject(error));
         });
@@ -32,7 +34,7 @@ app.factory("todoFactory", function($q, $http, FBCreds){
     // just using $http is fine here
     const addTask = function(obj){
         let newObj = JSON.stringify(obj);
-        return $http.post(`${FBCreds.databaseURL}/items.json`, newObj)
+        return $http.post(`${url}/items.json`, newObj)
             .then(data => data)
             .catch(error => console.log("error", error.message));
     };
@@ -41,7 +43,7 @@ app.factory("todoFactory", function($q, $http, FBCreds){
     const editTask = function(id, obj) {
         return $q((resolve, reject)=>{
             let newObj = JSON.stringify(obj);
-            $http.patch(`${FBCreds.databaseURL}/items/${id}.json`, newObj)
+            $http.patch(`${url}/items/${id}.json`, newObj)
                 .then(data=> resolve(data))
                 .catch(error => reject(error));
         });
@@ -50,7 +52,7 @@ app.factory("todoFactory", function($q, $http, FBCreds){
     // takes an id and deletes the corresponding task from the database
     const deleteTask = function(id){
         return $q((resolve,reject)=>{
-            $http.delete(`${FBCreds.databaseURL}/items/${id}.json`)
+            $http.delete(`${url}/items/${id}.json`)
                 .then(response => resolve(response))
                 .catch(error => reject(error));
         });
@@ -58,7 +60,7 @@ app.factory("todoFactory", function($q, $http, FBCreds){
 
     const getSingleTask = function(itemId){
         return $q((resolve,reject)=> {
-            $http.get(`${FBCreds.databaseURL}/items/${itemId}.json`)
+            $http.get(`${url}/items/${itemId}.json`)
                 .then(item => resolve(item.data))
                 .catch(error => reject(error));
         });
