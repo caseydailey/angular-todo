@@ -21,8 +21,11 @@ app.controller("listCtrl", function($scope, todoFactory, userFactory){
     };
 
     
-    const deleteTask = function(){
-
+    // called from list.html gets the itemId from $routeParams
+    // and passes this to the factory 
+    vm.deleteTask = function(id){
+        todoFactory.deleteTask(id)
+            .then(()=>showAllTasks());
     };
 
     
@@ -37,7 +40,7 @@ app.controller("listCtrl", function($scope, todoFactory, userFactory){
         let tmpObj = {isCompleted:status};
         console.log("toggleDoneTask", thingy);
         todoFactory.editTask(thingy.id, tmpObj)
-            .then(() => showAllTasks());
+            .then(()=>showAllTasks());
     };
 
     showAllTasks();

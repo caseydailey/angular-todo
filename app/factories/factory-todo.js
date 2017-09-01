@@ -29,6 +29,7 @@ app.factory("todoFactory", function($q, $http, FBCreds){
         });
     };
 
+    // just using $http is fine here
     const addTask = function(obj){
         let newObj = JSON.stringify(obj);
         return $http.post(`${FBCreds.databaseURL}/items.json`, newObj)
@@ -46,8 +47,13 @@ app.factory("todoFactory", function($q, $http, FBCreds){
         });
     };
 
-    const deleteTask = function(){
-
+    // takes an id and deletes the corresponding task from the database
+    const deleteTask = function(id){
+        return $q((resolve,reject)=>{
+            $http.delete(`${FBCreds.databaseURL}/items/${id}.json`)
+                .then(response => resolve(response))
+                .catch(error => reject(error));
+        });
     };
 
     const getSingleTask = function(itemId){
