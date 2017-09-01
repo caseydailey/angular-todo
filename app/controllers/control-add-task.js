@@ -7,13 +7,15 @@
 
  */
 
-app.controller("addTaskCtrl", function($scope, todoFactory, $location){
+app.controller("addTaskCtrl", function($scope, todoFactory, $location, userFactory){
 
     const vm = $scope;
 
     // bund some values to scope to customize the form
     vm.title = "New Task";
     vm.submitButtonText = "Add New Task";
+
+    const user = userFactory.getCurrentUser();
 
     // gather data from form to send to db
     vm.task = {
@@ -23,7 +25,8 @@ app.controller("addTaskCtrl", function($scope, todoFactory, $location){
         urgency: "",
         task: "",
         isCompleted: false,
-        location: ""
+        location: "",
+        uid: user
     };
 
 

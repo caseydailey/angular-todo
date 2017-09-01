@@ -16,7 +16,8 @@ app.controller("listCtrl", function($scope, todoFactory, userFactory){
     // get all tasks from firebase, using the factory
     // and bind the returned array to scope (vm) 
     const showAllTasks = function(){
-        todoFactory.getAllTasks()
+        let user = userFactory.getCurrentUser();
+        todoFactory.getAllTasks(user)
             .then(tasks => vm.tasks = tasks);
     };
 
@@ -38,7 +39,6 @@ app.controller("listCtrl", function($scope, todoFactory, userFactory){
     
         let status = thingy.isCompleted ? true : false;
         let tmpObj = {isCompleted:status};
-        console.log("toggleDoneTask", thingy);
         todoFactory.editTask(thingy.id, tmpObj)
             .then(()=>showAllTasks());
     };

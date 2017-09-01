@@ -21,9 +21,9 @@ app.factory("todoFactory", function($q, $http, FBCreds){
     // call firebase for all the items
     // firebase returns an object of objects,
     // fo we pass that to makeArray, a helper defined above
-    const getAllTasks = function(){
+    const getAllTasks = function(user){
         return $q((resolve, reject)=>{
-            $http.get(`${FBCreds.databaseURL}/items.json`)
+            $http.get(`${FBCreds.databaseURL}/items.json?orderBy="uid"&equalTo="${user}"`)
                 .then(items => resolve(makeArray(items.data)))
                 .catch(error => reject(error));
         });

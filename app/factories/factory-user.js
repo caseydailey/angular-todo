@@ -26,7 +26,7 @@ app.factory("userFactory", function($q, $http){
     };
 
     const getCurrentUser = function(){
-
+        return currentUser;
     };
 
 
