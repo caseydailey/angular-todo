@@ -1,5 +1,12 @@
 "use strict";
 
+/*
+    this controller is instantiated when the 'user.html' template 
+    is rendered at the '/login' path.
+    it uses the userFactory to handle the registration of new users, login with google or email and password.
+
+ */
+
 app.controller("userCtrl", function($scope, $window, userFactory, $location){
 
     const vm = $scope;
@@ -7,13 +14,15 @@ app.controller("userCtrl", function($scope, $window, userFactory, $location){
     // this will hold user's email and password
     vm.account = {};
 
+    // called when the 'register' button is clicked.
+    // form data is gathered and sent to userFactory and our register method
+    // passes it off to firebase
     vm.register = function(){
         userFactory.register({
             email: vm.account.email,
             password: vm.account.password
         })
         .then(userData => {
-            console.log("registered userData", userData);
             vm.logIn();
         })
         .catch(error => console.log("error with login", error));

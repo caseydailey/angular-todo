@@ -1,9 +1,8 @@
 "use strict";
 
 /*
-
-    provide the basic auth functionality for firebase
-
+    provides the basic auth functionality for firebase
+    as well a couple of additional helpers and utility methods related to user stuff.
  */
 
 app.factory("userFactory", function($q, $http){
@@ -13,7 +12,7 @@ app.factory("userFactory", function($q, $http){
     const provider = new firebase.auth.GoogleAuthProvider();
 
     const isAuthenticated = function (){
-        return new Promise ( (resolve, reject) => {
+        return new Promise ((resolve, reject) => {
             firebase.auth().onAuthStateChanged(user => {
                 if (user){
                     currentUser = user.uid;
@@ -45,6 +44,7 @@ app.factory("userFactory", function($q, $http){
 
     // this takes an object created in the controller
     // which has an email and password from the form data
+    // gathered in user.html
     const register = function(user){
         return firebase.auth()
                        .createUserWithEmailAndPassword(user.email, user.password);
