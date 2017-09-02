@@ -1,7 +1,10 @@
 "use strict";
 
+// instatiate the module as 'app'
 const app = angular.module("TodoApp", ['ngRoute']);
 
+// ckecks to see if a user is logged in
+// this is checked as the 'resolve' in most views
 const isAuth = (userFactory) => userFactory.isAuthenticated();
 
 app.config(($routeProvider)=> {
@@ -42,4 +45,5 @@ app.config(($routeProvider)=> {
     .otherwise('/');
 });
 
+// .run
 app.run(($location, FBCreds)=> firebase.initializeApp(FBCreds));
