@@ -33,13 +33,7 @@ app.controller("listCtrl", function($scope, todoFactory, userFactory){
     // called by and ng-change on a checkbox in list.html
     // updates the isComplete property in the database and re-renders the todos
     vm.toggleDoneTask = function(thingy){
-
-        // TODO fix this in the DOM. angular is updating this
-        // and then we're updating it and it's counterintuitive
-    
-        let status = thingy.isCompleted ? true : false;
-        let tmpObj = {isCompleted:status};
-        todoFactory.editTask(thingy.id, tmpObj)
+        todoFactory.editTask(thingy.id, {isCompleted:thingy.isCompleted})
             .then(()=>showAllTasks());
     };
 
