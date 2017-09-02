@@ -9,7 +9,7 @@
 
 app.controller("listCtrl", function($scope, todoFactory, userFactory){
 
-    // putting $scope in a container
+    // putting $scope in a const
     const vm = $scope;
     vm.tasks =[];
     
@@ -32,6 +32,8 @@ app.controller("listCtrl", function($scope, todoFactory, userFactory){
     
     // called by and ng-change on a checkbox in list.html
     // updates the isComplete property in the database and re-renders the todos
+    // because it's ng-model, the checkbox gets the value 'true' when checked,
+    // we update the object in firebase with this property
     vm.toggleDoneTask = function(thingy){
         todoFactory.editTask(thingy.id, {isCompleted:thingy.isCompleted})
             .then(()=>showAllTasks());
