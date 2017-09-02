@@ -14,8 +14,9 @@ app.controller("navCtrl", function($scope, $window, userFactory){
     // default to false
     vm.isLoggedIn = false;
 
-    // hmmm... how does this actually work?
     vm.logOut = () => userFactory.logOut();
+    
+     // hmmm... how, when, and why does this actually work?
       firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
           vm.isLoggedIn = true;

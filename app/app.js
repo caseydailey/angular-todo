@@ -5,7 +5,7 @@ const app = angular.module("TodoApp", ['ngRoute']);
 
 // is user logged in?
 // this is checked as the 'resolve' in most views
-// // the resolve is an optional map of dependencies if they are resolved successfully,
+// the resolve is an optional map of dependencies if they are resolved successfully,
 // they will be injected when the controller is instantiated, and are available to $scope in that controller under $resolve.
 // else a $routeChangeError will be fired
 // in this case, we need to know if the user is logged in to determine whether to allow access to certain paths

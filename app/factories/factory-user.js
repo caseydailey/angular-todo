@@ -7,10 +7,21 @@
 
 app.factory("userFactory", function($q, $http){
 
+    // default to null, checked and updated onAuthStateChanged
+    // and used throughout the application to check if there is a current user
+    // and if so, what their firebase uid is.
     let currentUser = null;
 
+    
+    // Create an instance of the Google provider object
     const provider = new firebase.auth.GoogleAuthProvider();
 
+    // if a user is authenticated, resolve true, else reject false
+    // this is returns a promise whose status is checked in the resolve
+    // to many of the paths configure with $routeprovider in app.js
+    // they will be injected when the controller is instantiated, 
+    // and are available to $scope in that controller under $resolve.
+    // else a $routeChangeError will be fired
     const isAuthenticated = function (){
         return new Promise ((resolve, reject) => {
             firebase.auth().onAuthStateChanged(user => {
@@ -18,7 +29,7 @@ app.factory("userFactory", function($q, $http){
                     currentUser = user.uid;
                     resolve(true);
                 }else {
-                    resolve(false);
+                    reject(false);
                 }
             });
         });
@@ -37,7 +48,6 @@ app.factory("userFactory", function($q, $http){
 
 
     const logOut = function(){
-        console.log("logging out");
         return firebase.auth().signOut();
     };
 
