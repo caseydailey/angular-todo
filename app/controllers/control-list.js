@@ -7,11 +7,15 @@
 
 app.controller("listCtrl", function($scope, $rootScope, todoFactory, userFactory, filterFactory){
 
+    // this is probably not a good idea.
+    // the idea, though is to have this available
+    // in the scope of the navBar and the list
+    $rootScope.showSearch = true;
+
     // putting '$scope' in a const
     const vm = $scope;
-    $rootScope.showSearch = true;
     vm.searchText = filterFactory;
-
+    
     // initialize an array, bound to scope
     vm.tasks = [];
     

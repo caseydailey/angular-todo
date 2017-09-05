@@ -58,5 +58,6 @@ app.config(($routeProvider)=> {
 // which contains the databaseURL, apiKey, and authDomain need to interact with the app
 app.run(($location, FBCreds)=> firebase.initializeApp(FBCreds));
 
-// binding this value to rootscope is neither necessary or 
+// binding this value to rootscope is not necessary
+// but we are just taking this opportunity to 
 app.run(($rootScope)=> $rootScope.showSearch = false);
