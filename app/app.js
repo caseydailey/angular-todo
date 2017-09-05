@@ -59,5 +59,5 @@ app.config(($routeProvider)=> {
 app.run(($location, FBCreds)=> firebase.initializeApp(FBCreds));
 
 // binding this value to rootscope is not necessary
-// but we are just taking this opportunity to 
+// but we are just taking this opportunity to illustrate the fact that you can.
 app.run(($rootScope)=> $rootScope.showSearch = false);
