@@ -57,3 +57,6 @@ app.config(($routeProvider)=> {
 // here we are just initializing our app with firebase, passing 'FRCreds', a constant registered in app/fb-creds.js
 // which contains the databaseURL, apiKey, and authDomain need to interact with the app
 app.run(($location, FBCreds)=> firebase.initializeApp(FBCreds));
+
+// binding this value to rootscope is neither necessary or 
+app.run(($rootScope)=> $rootScope.showSearch = false);

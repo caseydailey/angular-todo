@@ -5,10 +5,12 @@
     using todoFactory and userFactory to interact with the database
  */
 
-app.controller("listCtrl", function($scope, todoFactory, userFactory){
+app.controller("listCtrl", function($scope, $rootScope, todoFactory, userFactory, filterFactory){
 
     // putting '$scope' in a const
     const vm = $scope;
+    $rootScope.showSearch = true;
+    vm.searchText = filterFactory;
 
     // initialize an array, bound to scope
     vm.tasks = [];
