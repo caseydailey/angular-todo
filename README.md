@@ -1,4 +1,4 @@
-# Angular-todo
+# our first Angular-ToDo
 
 This project is presented as an epic code-along toward the end of the front-end course at NSS.
 It's purpose is to introduce, crash-course style a basic mvc-style angularJS CRUD app which uses Firebase to persist user created data.
