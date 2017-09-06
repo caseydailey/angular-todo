@@ -14,6 +14,8 @@ As a user, you can:
 
 # To run
 
+If you'd like to pull this down and play with it, please do. Below are some instructions on how to do that.
+
 ## Fork and Clone
 
 * fork this repository
