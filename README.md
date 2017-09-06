@@ -18,7 +18,7 @@ If you'd like to pull this down and play with it, please do. Below are some inst
 
 ## Fork and Clone
 
-* [fork](https://help.github.com/articles/fork-a-repo/) this repository
+* fork this repository. if you're still not clear on how to do this, it's cool there are instuctions here [here](https://help.github.com/articles/fork-a-repo/)
 * clone your fork and ``` cd ``` into the directory git creates for you
 
 ## Install Dependencies
