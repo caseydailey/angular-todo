@@ -46,7 +46,7 @@ If you want to seed your database with some sample items, you can look in import
 ### Credentials
 
 Once you've set up your project, you need to be able to refer to your url and api key in the app.
-To accomplish this, you'll need to create a file called 'db-creds.js' in a directory called 'values' in the 'app' directory.
+To accomplish this, you'll need to create a file called 'fb-creds.js' in a directory called 'values' in the 'app' directory.
 From the project root directory, just run these commands:
 
 ```
