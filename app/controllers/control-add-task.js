@@ -7,7 +7,7 @@
 
  */
 
-app.controller("addTaskCtrl", function($scope, todoFactory, $location, userFactory){
+app.controller("addTaskCtrl", function($scope, todoFactory, $window, userFactory){
 
     const vm = $scope;
 
@@ -34,7 +34,7 @@ app.controller("addTaskCtrl", function($scope, todoFactory, $location, userFacto
     // then use $location to set url to 'task-list'
     vm.submitTask = function(){
         todoFactory.addTask(vm.task);
-            $location.url('/task-list');
+            $window.location.href = "#!/task-list";
     };
 
 
