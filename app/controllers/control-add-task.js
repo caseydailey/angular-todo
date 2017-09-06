@@ -31,7 +31,10 @@ app.controller("addTaskCtrl", function($scope, todoFactory, $window, userFactory
 
 
     // call factory to add vm.task to db
-    // then use $location to set url to 'task-list'
+    // set the href to '#!/task-list'
+    // this redirects and applies a digest cycle 
+    // so your new task is displayed with the others
+    // if you use $location.url, you will only see the new task once you refresh and force a digest cycle
     vm.submitTask = function(){
         todoFactory.addTask(vm.task);
             $window.location.href = "#!/task-list";
