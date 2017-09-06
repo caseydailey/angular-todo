@@ -1,4 +1,4 @@
-# our first Angular-ToDo
+# Our First Angular-ToDo
 
 This project is presented as an epic code-along toward the end of the front-end course at NSS.
 It's purpose is to introduce, crash-course style a basic mvc-style angularJS CRUD app which uses Firebase to persist user created data.
@@ -18,7 +18,7 @@ If you'd like to pull this down and play with it, please do. Below are some inst
 
 ## Fork and Clone
 
-* fork this repository. if you're still not clear on how to do this, it's cool there are instuctions here [here](https://help.github.com/articles/fork-a-repo/)
+* fork this repository. if you're still not clear on how to do this, it's cool there are instuctions here [here](https://help.github.com/articles/fork-a-repo/).
 * clone your fork and ``` cd ``` into the directory git creates for you
 
 ## Install Dependencies
